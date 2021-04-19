@@ -13,6 +13,12 @@ app.use('/graphiql', graphqlHTTP({
     schema
 }))
 
+app.use('/', (req, res) => {
+
+    res.redirect('/graphiql', 200);
+
+})
+
 app.use('/:shortUrl', async(req, res) => {
 
     const { shortUrl } = req.params;
