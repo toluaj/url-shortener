@@ -11,10 +11,10 @@ app.use(cors());
 
 // app.set('view engine', 'ejs');
 
-// app.get('/',function(req,res){
-//     // res.sendFile(path.join(__dirname+'/views/index.ejs'));
-//     res.render('index');
-// })
+app.get('/',function(req,res){
+    res.sendFile(path.join(__dirname+'/index.html'));
+    // res.render('index.html');
+})
 
 app.use('/graphiql', graphqlHTTP({
     graphiql: true,
