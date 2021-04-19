@@ -9,6 +9,7 @@ const shortUrl = require('../TypeDefs/Url');
 const urls = require('../urls_database.json');
 const {nanoid} = require('nanoid');
 const urlExists = require('url-exists-nodejs');
+const { response } = require('express');
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
@@ -19,20 +20,23 @@ const RootQuery = new GraphQLObjectType({
             args: {
                 url: {type: GraphQLString} 
             },
-            resolve: async (parent, args) => {
-                let exists = await urlExists(args.url);
-                    if(exists == true){
-                        const newurl = {
-                        id: urls.length + 1,
-                        fullUrl: args.url,
-                        short: nanoid(6)
+            resolve: async (parent, { url }, context, info) => {
+                let exists = await urlExists(url); //checks if this url is valid
+                        
+                if(exists == true){
+                    const newurl = {
+                    id: urls.length + 1,
+                    fullUrl: url,
+                    short: nanoid(6)
                     }
-                    return newurl;
-                    }
+                urls.push(newurl);
+                return newurl;
+                }
 
-                    else {
-                        throw new Error(`This url is invalid`)
-                    }
+                else {
+                    console.log(info);
+                    return info;
+                }
                   
             }
         }
