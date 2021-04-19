@@ -5,19 +5,21 @@ const cors = require('cors');
 const {graphqlHTTP} = require('express-graphql');
 const db = require('./urls_database.json');
 const schema = require('./Queries/UrlQuery');
+const path = require('path');
 
 app.use(cors());
-app.set('view engine', 'html');
+
+// app.set('view engine', 'ejs');
+
+// app.get('/',function(req,res){
+//     // res.sendFile(path.join(__dirname+'/views/index.ejs'));
+//     res.render('index');
+// })
+
 app.use('/graphiql', graphqlHTTP({
     graphiql: true,
     schema
 }))
-
-app.get('/', (req, res) => {
-
-    res.redirect('/graphiql');
-
-})
 
 app.use('/:shortUrl', async(req, res) => {
 

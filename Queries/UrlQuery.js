@@ -9,7 +9,8 @@ const shortUrl = require('../TypeDefs/Url');
 const urls = require('../urls_database.json');
 const {nanoid} = require('nanoid');
 const urlExists = require('url-exists-nodejs');
-const { response } = require('express');
+const { request } = require('express');
+var os = require('os');
 
 const RootQuery = new GraphQLObjectType({
     name: "RootQuery",
@@ -22,19 +23,21 @@ const RootQuery = new GraphQLObjectType({
             },
             resolve: async (parent, { url }, context, info) => {
                 let exists = await urlExists(url); //checks if this url is valid
-                        
+                let short = nanoid(6);
                 if(exists == true){
                     const newurl = {
                     id: urls.length + 1,
                     fullUrl: url,
-                    short: nanoid(6)
+                    short,
+                    shortenedUrl: `localhost:8000/${short}`
                     }
                 urls.push(newurl);
-                return newurl;
+                console.log(os)
+                // return process.env.PORT/newurl.short;
+                return newurl
                 }
 
                 else {
-                    console.log(info);
                     return info;
                 }
                   

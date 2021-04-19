@@ -17,6 +17,9 @@ const shortUrl = new GraphQLObjectType({
         },
         short: {
             type: GraphQLNonNull(GraphQLString)
+        },
+        shortenedUrl: {
+            type: GraphQLNonNull(GraphQLString)
         }
     })
 })
