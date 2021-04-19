@@ -13,9 +13,9 @@ app.use('/graphiql', graphqlHTTP({
     schema
 }))
 
-app.use('/', (req, res) => {
+app.get('/', (req, res) => {
 
-    res.redirect('/graphiql', 200);
+    res.redirect('/graphiql');
 
 })
 
