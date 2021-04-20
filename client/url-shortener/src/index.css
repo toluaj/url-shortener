@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@1,200&display=swap');
+
+html { box-sizing: border-box; font-size: 10px; }
+*, *:before, *:after { box-sizing: inherit; }
+
+input { border-style: none; background: transparent; }
+button { padding: 0; background: none; border: none; outline: none; }
+
+body {
+  margin-top: 30em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Spectral", serif, 'Times New Roman', Times, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: radial-gradient(circle at 0% 0%, #373b52, #252736 51%, #1d1e26);
+  /* background-image: url(./bg.jpg); */
+}
+
+h1 {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: normal;
+  margin-bottom: 1rem;
+  color: #c58524;
+}
+
+a {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: normal;
+  color: #c58524;
+  color: rgba(202, 205, 239, 0.8);
+  margin-bottom: 3rem;
+}
+
+img {
+  justify-content: center;
+}
+
+.demo-flex-spacer {
+  flex-grow: 4;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  max-width: 1600px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@keyframes gradient { 
+  0%{background-position:0 0}
+  100%{background-position:100% 0}
+}
+
+.webflow-style-input {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 2px;
+  padding: 1.4rem 2rem 1.6rem;
+  background: rgba(57, 63, 84, 0.8)
+}
+
+input::placeholder {
+  color: #7881A1;
+}
+
+.webflow-style-input::after {
+    content: "";
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 999;
+    height: 2px;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    background-position: 0% 0%;
+    background: linear-gradient(to right, #B294FF, #57E6E6, #FEFFB8, #57E6E6, #B294FF, #57E6E6);
+    background-size: 500% auto;
+    animation: gradient 3s linear infinite;
+  }
+
+.webflow-style-input input {
+  flex-grow: 1;
+  color: #7881A1;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+  vertical-align: middle;
+}
+
+.webflow-style-input button {
+  color:  #7881A1;
+  font-size: 1.5em;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+}
+
+#back button {
+  color:  #7881A1;
+  font-size: 1.5em;
+  line-height: 2.4rem;
+  vertical-align: middle;
+  transition: color .25s;
+}
+
+
+.webflow-style-input button:hover {
+  cursor: pointer;
+  color: #BFD2FF;
+}
+
+#back button:hover {
+  cursor: pointer;
+  color: #BFD2FF;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
