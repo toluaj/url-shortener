@@ -7,17 +7,16 @@ A frontend interface is hosted on https://bitty-url.netlify.app.
 
 Query example:
 
-{
-  
-  shortenUrl(url: "https://www.google.com") {
-  
-    id
-    fullUrl                                       
-    short
-    shortenedUrl
+  {
+    
+    shortenUrl(url: "https://www.google.com") {
+      id
+      fullUrl
+      short
+      shortenedUrl  
+    
+    }
     
   }
-  
-}
 
 Stack: GraphQL, Express and Node.js
