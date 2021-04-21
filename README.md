@@ -3,14 +3,14 @@ We don't always want long urls. They're stressful sometimes. This simple app is 
 
 This project is hosted on https://bitty-uri.herokuapp.com/graphiql.
 
-A frontend interface is hosted on https://bitty-url.netlify.app
+A frontend interface is hosted on https://bitty-url.netlify.app.
 
 Query example:
 
 {
   shortenUrl(url: "https://www.google.com") {
     id
-    fullUrl
+    fullUrl                                       
     short
     shortenedUrl
   }
